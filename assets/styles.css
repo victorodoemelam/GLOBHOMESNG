@@ -242,10 +242,13 @@ h3 { margin-bottom: 12px; font-size: 1.3rem; }
   .menu-toggle { display: grid; place-items: center; }
   .header-logo { width: 118px; }
   .header-logo img { height: 60px; }
-  .nav { position: fixed; inset: 0 0 0 auto; display: flex; width: min(85%, 420px); align-items: stretch; justify-content: center; flex-direction: column; padding: 90px 35px 35px; background: var(--forest-2); color: var(--white); transform: translateX(100%); transition: .3s ease; }
+  .nav { position: fixed; inset: 0; z-index: 1; display: flex; width: 100%; height: 100dvh; align-items: stretch; justify-content: flex-start; flex-direction: column; gap: 4px; overflow-y: auto; padding: 118px 28px 40px; background: var(--forest-2); color: var(--white); transform: translateX(100%); transition: .3s ease; }
   .nav.open { transform: translateX(0); box-shadow: -20px 0 60px rgba(0,0,0,.18); }
-  .nav a { padding: 10px 0; font-size: 1rem; }
-  .nav .btn { margin-top: 15px; }
+  .nav a { padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.12); font-size: 1rem; }
+  .nav .btn { width: 100%; margin-top: 20px; border-bottom: 0; }
+  .menu-toggle { z-index: 3; }
+  .site-header.solid .menu-toggle { color: var(--ink); }
+  .menu-toggle[aria-expanded="true"] { border-color: var(--lime); color: var(--white); }
   .hero-scroll { display: none; }
   .hero-copy { align-items: start; flex-direction: column; }
   .trust-inner { grid-template-columns: 1fr 1fr; }
