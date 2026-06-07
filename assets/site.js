@@ -33,6 +33,35 @@ document.querySelectorAll('.filter-btn').forEach(button => {
   });
 });
 
+const testimonialCarousel = document.querySelector('.testimonial-carousel');
+const testimonialTrack = document.querySelector('.testimonial-track');
+const testimonialSlides = [...document.querySelectorAll('.testimonial-slide')];
+const testimonialCount = document.querySelector('.testimonial-count');
+const testimonialPrevious = document.querySelector('.testimonial-prev');
+const testimonialNext = document.querySelector('.testimonial-next');
+let testimonialIndex = 0;
+
+const showTestimonial = index => {
+  if (!testimonialSlides.length) return;
+  testimonialIndex = (index + testimonialSlides.length) % testimonialSlides.length;
+  testimonialTrack.style.transform = `translateX(-${testimonialIndex * 100}%)`;
+  testimonialSlides.forEach((slide, slideIndex) => {
+    const active = slideIndex === testimonialIndex;
+    slide.classList.toggle('active', active);
+    slide.setAttribute('aria-hidden', String(!active));
+  });
+  testimonialCount.textContent = `${String(testimonialIndex + 1).padStart(2, '0')} / ${String(testimonialSlides.length).padStart(2, '0')}`;
+};
+
+testimonialPrevious?.addEventListener('click', () => showTestimonial(testimonialIndex - 1));
+testimonialNext?.addEventListener('click', () => showTestimonial(testimonialIndex + 1));
+testimonialCarousel?.addEventListener('keydown', event => {
+  if (event.key === 'ArrowLeft') showTestimonial(testimonialIndex - 1);
+  if (event.key === 'ArrowRight') showTestimonial(testimonialIndex + 1);
+});
+testimonialCarousel?.setAttribute('tabindex', '0');
+showTestimonial(0);
+
 const form = document.querySelector('.contact-form');
 form?.addEventListener('submit', event => {
   event.preventDefault();
