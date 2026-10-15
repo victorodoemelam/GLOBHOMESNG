@@ -1,27 +1,19 @@
-# Globhomes Furniture & Interiors
+# Glob Homes Furniture & Interiors
 
-A modern, responsive static website for Globhomes Furniture & Interiors.
+Responsive website preview for Glob Homes Furniture, with locally hosted photographs and fonts.
 
-## Website Pages
+## Pages
 
 - Home
-- About Us
-- Services
-- Inside Globhomes
+- About Glob Homes and Leadership
+- Our Capabilities
+- Projects
 - Contact
-- Six individual project case studies
 
-## Local Preview
+## Preview locally
 
-Open `index.html` directly in a browser or serve this folder with any static web server.
+Run `python3 -m http.server 4173` from this directory and visit http://localhost:4173.
 
-## Publishing
+## Preview limitations
 
-The repository includes an automatic GitHub Pages deployment workflow. Updates
-pushed to the `main` branch are published to the preview website automatically.
-
-## Before Production Launch
-
-- Connect the contact form to the preferred form-processing service.
-- Confirm the final phone number, address, email, and social links.
-- Replace any remaining external image URLs if locally hosted assets are preferred.
+The enquiry form downloads a project brief; it does not send messages. The footer photo carousel links to Instagram but does not automatically synchronise posts. Selected About-page images remain placeholders.
